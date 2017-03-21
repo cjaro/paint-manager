@@ -1,0 +1,36 @@
+<div class='container'>
+<h1 class="jumbotron">▂▃▅▇█▓▒░::::::::.......Manager.......::::::::░▒▓█▇▅▃▂</h1>
+<form>
+<input ng-model="cc.newClient.name" placeholder="Name">
+<input ng-model="cc.newClient.email" placeholder="Email">
+<input ng-model="cc.newClient.phone" placeholder="Phone">
+<input ng-model="cc.newClient.address" placeholder="Address">
+<input ng-model="cc.newClient.notes" placeholder="Notes">
+<button id="inputButton" ng-click="cc.addClient(cc.newClient)">Click here to add a new client</button>
+</form>
+<p>{{cc.newClient}}</p>
+<table align = "center">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="client in cc.clients.list">
+    <td><input ng-model="client.name"></td>
+    <td><input ng-model="client.email"></td>
+    <td><input ng-model="client.phone"></td>
+    <td><input ng-model="client.address"></td>
+    <td><input ng-model="client.notes"></td>
+    <td><button class="deleteButton" type="button" ng-click="cc.deleteClient(client.id)">Delete</button></td>
+    <td><button class="saveButton" type="button" ng-click="cc.saveClient(client)">Save</button></td>
+  </tr>
+</tbody>
+</table>
+<p>{{cc.clients.list}}</p>
+<p>{{cc.clients}}</p>
+</div>
