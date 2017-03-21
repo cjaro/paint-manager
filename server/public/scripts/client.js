@@ -1,4 +1,4 @@
-var app = angular.module('PaintApp', ['ngRoute']);
+var app = angular.module('PaintApp', ['ngRoute', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -6,6 +6,11 @@ app.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/clients.html',
       controller: 'ClientsController',
       controllerAs: 'cc'
+    })
+    .when('/accordian', {
+      templateUrl: '/views/accordian.html',
+      controller: 'AccordionDemoCtrl',
+      controllerAs: 'ac'
     })
     .otherwise({
       redirectTo: 'clients'

@@ -1,0 +1,124 @@
+<div class="container">
+  <h1 class="jumbotron">▂▃▅▇█▓▒░::::::::.......Manager.......::::::::░▒▓█▇▅▃▂</h1>
+    <script type="text/ng-template" id="group-template.html">
+      <div class="panel-heading">
+        <div class="panel-title" style="none">
+          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+            <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+              {{heading}}
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="panel-collapse collapse" uib-collapse="!isOpen">
+        <div class="panel-body" style="text-align: left" ng-transclude></div>
+      </div>
+    </script>
+
+    <p>
+      <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+      <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+    </p>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="oneAtATime">
+        Open only one at a time
+      </label>
+    </div>
+    <uib-accordion close-others="oneAtATime">
+
+
+
+      <!-- <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
+        {{group.content}}
+      </div> -->
+      <!-- <div uib-accordion-group class="panel-default" heading="{{client.name}}{{client.email}}{{client.phone}}{{client.address}}" ng-repeat="client in ac.clients.list"> -->
+      <div uib-accordion-group class="panel-default" ng-repeat="client in ac.clients.list" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+        <uib-accordion-heading class="panel-title">
+          <table class="table-condensed" >
+            <thead>
+            <tr>
+            <th>{{client.name}}</th>
+            <th>{{client.email}}</th>
+            <th>{{client.phone}}</th>
+            <th>{{client.address}}</th>
+          </tr>
+        </thead>
+          </table>
+        </uib-accordion-heading>
+        <form>
+          <div class="form-group">
+            <div class="col-xs-4">
+              <label for="ex1">Name:</label>
+              <input ng-model="client.name" class="form-control" id="ex1" type="text">
+            </div>
+            <div class="col-xs-4">
+              <label for="ex2">Email:</label>
+              <input ng-model="client.email" class="form-control" id="ex2" type="text">
+            </div>
+            <div class="col-xs-4">
+              <label for="ex3">Phone:</label>
+              <input ng-model="client.phone" class="form-control" id="ex3" type="text">
+            </div>
+            <div class="col-xs-8">
+              <label for="ex2">Address:</label>
+              <input ng-model="client.address" class="form-control" id="ex2" type="text">
+            </div>
+            <div class="col-xs-4">
+              <label for="ex3">Notes:</label>
+              <input ng-model="client.notes" class="form-control" id="ex3" type="text">
+            </div>
+          </div><!-- end form group -->
+        </form>
+        <button class="btn btn-danger" type="button" ng-click="ac.deleteClient(client.id)">Delete</button>
+        <button class="btn btn-primary" type="button" ng-click="ac.saveClient(client)">Save</button>
+
+        <!-- <button type="button" class="btn btn-default" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}} -->
+        </div>
+
+
+
+      <!-- <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+      Hello
+    </div> -->
+
+    <!-- <div uib-accordion-group class="panel-default" ng-repeat="client in ac.clients.list" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+      <uib-accordion-heading>
+        <ul class="list-inline">
+          <li>{{client.name}}</li>
+          <li>{{client.name}}</li>
+          <li>{{client.name}}</li>
+          <li>{{client.name}}</li>
+        </ul>
+      </uib-accordion-heading>
+      <form>
+        <div class="form-group">
+          <div class="col-xs-4">
+            <label for="ex1">Name:</label>
+            <input ng-model="client.name" class="form-control" id="ex1" type="text">
+          </div>
+          <div class="col-xs-4">
+            <label for="ex2">Email:</label>
+            <input ng-model="client.email" class="form-control" id="ex2" type="text">
+          </div>
+          <div class="col-xs-4">
+            <label for="ex3">Phone:</label>
+            <input ng-model="client.phone" class="form-control" id="ex3" type="text">
+          </div>
+          <div class="col-xs-8">
+            <label for="ex2">Address:</label>
+            <input ng-model="client.address" class="form-control" id="ex2" type="text">
+          </div>
+          <div class="col-xs-4">
+            <label for="ex3">Notes:</label>
+            <input ng-model="client.notes" class="form-control" id="ex3" type="text">
+          </div>
+        </div><!-- end form group -->
+      <!-- </form>
+    </div> --> -->
+
+
+</uib-accordion>
+</div>

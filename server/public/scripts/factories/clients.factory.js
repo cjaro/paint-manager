@@ -45,7 +45,7 @@ return {
  clients: clients,
  addClient: addClient,
  deleteClient: deleteClient,
- saveClient: saveClient
+ saveClient: saveClient,
 }
 
 }]);
