@@ -34,6 +34,39 @@ app.controller('AccordionDemoCtrl', ['ClientsFactory', function(ClientsFactory){
   };
 
 
+  ////sweet alerts
+self.sweet = {};
+self.sweet.option = {
+    title: "Are you sure?",
+    text: "You will not be able to recover this imaginary file!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel plx!",
+    closeOnConfirm: false,
+    closeOnCancel: false
+}
+self.sweet.confirm = {
+    title: 'Deleted!',
+    text: 'Your imaginary file has been deleted.',
+    type: 'success'
+};
+
+self.sweet.cancel = {
+    title: 'Cancelled!',
+    text: 'Your imaginary file is safe',
+    type: 'error'
+}
+
+self.checkCancel=function(){
+console.log("check cancel")
+}
+self.checkConfirm=function(){
+  console.log("check confrim")
+}
+
+
 }]);
 
 

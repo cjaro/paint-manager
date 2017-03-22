@@ -6,7 +6,7 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
-      client.query('SELECT * FROM clients')
+      client.query('SELECT * FROM clients ORDER BY id DESC')
         .then(function (result) {
           client.release();
           res.send(result.rows);
