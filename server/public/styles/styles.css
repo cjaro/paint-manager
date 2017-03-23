@@ -3,6 +3,7 @@
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 body{
 /*background-image: url("/assets/IMG_5089.jpg");*/
@@ -20,9 +21,14 @@ button {
 }
 th, td {
     padding: 15px;
-    text-align: center;
     margin: 0 0 0 0;
     display: table-cell;
+}
+th {
+  text-align: center !important;
+}
+td {
+  text-align: left !important;
 }
 
 .jumbotron {
@@ -32,7 +38,7 @@ th, td {
 
 .table {
   margin: 0 0 0 0;
-  text-align: center !important;
+  overflow-y: hidden;
 }
 
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th { display: block; }
@@ -49,7 +55,7 @@ th, td {
 }
 .table-fixed tbody {
   height: 230px;
-  overflow-y: auto;
+  overflow-y: hidden;
   width:100%;
 }
 .table-fixed tbody td,
