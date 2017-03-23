@@ -27,9 +27,7 @@
   <a href="" sweetalert sweet-options="{{sweet.option}}" sweet-confirm-option="{{sweet.confirm}}" sweet-cancel-option="{{sweet.cancel}}"   sweet-on-cancel="checkCancel()" sweet-on-confirm="checkConfirm()"  class="btn" >Try It</a> -->
 
 
-  <!-- <div class="checkbox" ng-checked="all">
-    <label><input type="checkbox" ng-model="oneAtATime" checked ng-checked="true">Open only one at a time</label>
-  </div> -->
+
 
   <uib-accordion close-others = "true">
 
@@ -37,14 +35,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Address</th>
+          <th ng-click="column='name'">Name</th>
+          <th ng-click="column='email'">Email </th>
+          <th ng-click="column='phone'">Phone</th>
+          <th ng-click="column='address'">Address</th>
         </tr>
       </thead>
     </table>
-    <div uib-accordion-group ng-init="status.open = $first" is-open="status.open" class="panel-default" ng-repeat="client in ac.clients.list"   template-url="group-template.html">
+    <div uib-accordion-group ng-init="status.open = $first" is-open="status.open" class="panel-default" ng-repeat="client in  (ac.clients.list|orderBy:column|emptyToStart:'name') "    template-url="group-template.html">
 
       <uib-accordion-heading>
         <table class="table" align="center">

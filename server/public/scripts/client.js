@@ -16,3 +16,16 @@ app.config(['$routeProvider', function($routeProvider) {
       redirectTo: 'accordian'
     })
 }]);
+
+app.filter("emptyToStart", function () {
+    return function (array, key) {
+        if(!angular.isArray(array)) return;
+        var present = array.filter(function (item) {
+            return item[key];
+        });
+        var empty = array.filter(function (item) {
+            return !item[key]
+        });
+        return empty.concat(present);
+    };
+});
