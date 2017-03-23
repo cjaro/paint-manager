@@ -22,15 +22,16 @@
     </div>
   </script>
 
+
   <!-- <input sweetalert sweet-options="{title: 'Are you sure?',text: 'You will not be able to recover this imaginary file!',type: 'warning',showCancelButton: true,confirmButtonColor: '#DD6B55',confirmButtonText: 'Yes, delete it!',cancelButtonText: 'No, cancel plx!'}" sweet-confirm-option="{title: 'Deleted!',text: 'Your imaginary file has been deleted.',type: 'success'}" sweet-cancel-option="{title: 'Cancelled!',text: 'Your imaginary file is safe',type: 'error'}" type="submit" name="login-submit" sweet-on-cancel="checkCancel()" sweet-on-confirm="checkConfirm()" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
   <a href="" sweetalert sweet-options="{{sweet.option}}" sweet-confirm-option="{{sweet.confirm}}" sweet-cancel-option="{{sweet.cancel}}"   sweet-on-cancel="checkCancel()" sweet-on-confirm="checkConfirm()"  class="btn" >Try It</a> -->
 
 
-  <div class="checkbox">
-    <label><input type="checkbox" ng-model="oneAtATime">Open only one at a time</label>
-  </div>
+  <!-- <div class="checkbox" ng-checked="all">
+    <label><input type="checkbox" ng-model="oneAtATime" checked ng-checked="true">Open only one at a time</label>
+  </div> -->
 
-  <uib-accordion close-others="oneAtATime">
+  <uib-accordion close-others = "true">
 
     <button class="btn btn-primary" id="inputButton" ng-click="ac.addClient(ac.newClient)">New Client</button>
     <table class="table">
@@ -43,9 +44,9 @@
         </tr>
       </thead>
     </table>
+    <div uib-accordion-group ng-init="status.open = $first" is-open="status.open" class="panel-default" ng-repeat="client in ac.clients.list"   template-url="group-template.html">
 
-    <div uib-accordion-group class="panel-default" ng-repeat="client in ac.clients.list" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
-      <uib-accordion-heading >
+      <uib-accordion-heading>
         <table class="table" align="center">
           <tbody>
             <tr>

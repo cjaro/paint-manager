@@ -13,6 +13,6 @@ app.config(['$routeProvider', function($routeProvider) {
       controllerAs: 'ac'
     })
     .otherwise({
-      redirectTo: 'clients'
+      redirectTo: 'accordian'
     })
 }]);
