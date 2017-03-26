@@ -1,12 +1,4 @@
 <div class="container">
-  <ol class="breadcrumb">
-    <li><a href="#">Clients</a></li>
-    <li><a href="#">Jobs</a></li>
-    <li class="active"></li>
-  </ol>
-</div>
-<div class="container">
-  <h1 class="jumbotron">▂▃▅▇█▓▒░::::::::.......Manager........::::::::░▒▓█▇▅▃▂</h1>
   <script type="text/ng-template" id="group-template.html">
     <div class="panel-heading">
       <div class="panel-title" style="none">
@@ -35,23 +27,24 @@
     <table class="table">
       <thead>
         <tr>
-          <th ng-click="column='name'"> Name ⧗</th>
+          <th ng-click="column='name'">Name ⧗</th>
           <th ng-click="column='email'">Email ⧗</th>
           <th ng-click="column='phone'">Phone ⧗</th>
           <th ng-click="column='address'">Address ⧗</th>
         </tr>
       </thead>
     </table>
-    <div uib-accordion-group ng-init="status.open = $first" is-open="status.open" class="panel-default" ng-repeat="client in  (ac.clients.list|orderBy:column|emptyToStart:'name')" template-url="group-template.html">
+    <div uib-accordion-group ng-init="status.open = $first"  is-open="status.open"  class="panel-default" ng-repeat="client in  (ac.clients.list|orderBy:column|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
 
+      <!-- style="overflow-y: hidden" -->
       <uib-accordion-heading>
-        <table class="table" style="overflow-y: hidden"align="center">
+        <table class="table" align="center">
           <tbody>
             <tr>
               <td><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></td>
-              <td class="col-xs-3" scope="row">{{client.name}}</td>
+              <td class="col-xs-3" scope="row"> {{client.name}}</td>
               <td class="col-xs-3" scope="row">{{client.email}}</td>
-              <td  class="col-xs-3"scope="row">{{client.phone}}</td>
+              <td class="col-xs-3"scope="row">{{client.phone}}</td>
               <td class="col-xs-3" scope="row">{{client.address}}</td>
             </tr>
           </tbody>
@@ -85,73 +78,10 @@
         <button class="btn btn-danger" type="button" ng-click="ac.deleteClient(client.id)">Delete</button>
         <button class="btn btn-primary" type="button" ng-click="ac.saveClient(client)">Save</button>
       </div>
-      <!-- <button type="button" class="btn btn-default" ng-click="addItem()">Add Item</button>
-      <div ng-repeat="item in items">{{item}} -->
+
     </div>
+    
 
 
-
-
-    <!-- <div uib-accordion-group class="panel-default" heading="{{client.name}}" ng-repeat="client in ac.clients.list" template-url="group-template.html">
-    <table align = "center">
-    <thead>
-    <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Address</th>
-    <th>Notes</th>
-  </tr>
-</thead>
-<tbody>
-<tr ng-repeat="client in ac.clients.list">
-<td><input ng-model="client.name"></td>
-<td><input ng-model="client.email"></td>
-<td><input ng-model="client.phone"></td>
-<td><input ng-model="client.address"></td>
-<td><input ng-model="client.notes"></td>
-<td><button class="deleteButton" type="button" ng-click="ac.deleteClient(client.id)">Delete</button></td>
-<td><button class="saveButton" type="button" ng-click="ac.saveClient(client)">Save</button></td>
-</tr>
-</tbody>
-</table>
-</div> -->
-
-<!-- <div uib-accordion-group class="panel-default" ng-repeat="client in ac.clients.list" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
-<uib-accordion-heading>
-<ul class="list-inline">
-<li>{{client.name}}</li>
-<li>{{client.name}}</li>
-<li>{{client.name}}</li>
-<li>{{client.name}}</li>
-</ul>
-</uib-accordion-heading>
-<form>
-<div class="form-group">
-<div class="col-xs-4">
-<label for="ex1">Name:</label>
-<input ng-model="client.name" class="form-control" id="ex1" type="text">
-</div>
-<div class="col-xs-4">
-<label for="ex2">Email:</label>
-<input ng-model="client.email" class="form-control" id="ex2" type="text">
-</div>
-<div class="col-xs-4">
-<label for="ex3">Phone:</label>
-<input ng-model="client.phone" class="form-control" id="ex3" type="text">
-</div>
-<div class="col-xs-8">
-<label for="ex2">Address:</label>
-<input ng-model="client.address" class="form-control" id="ex2" type="text">
-</div>
-<div class="col-xs-4">
-<label for="ex3">Notes:</label>
-<input ng-model="client.notes" class="form-control" id="ex3" type="text">
-</div>
-</div><!-- end form group -->
-<!-- </form>
-</div> -->
-
-
-</uib-accordion>
+  </uib-accordion>
 </div>
