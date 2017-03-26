@@ -2,10 +2,10 @@ var app = angular.module('PaintApp', ['ngRoute', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-    .when('/clients', {
-      templateUrl: '/views/clients.html',
-      controller: 'ClientsController',
-      controllerAs: 'cc'
+    .when('/jobs', {
+      templateUrl: '/views/jobs.html',
+      controller: 'JobsController',
+      controllerAs: 'jc'
     })
     .when('/accordian', {
       templateUrl: '/views/accordian.html',
