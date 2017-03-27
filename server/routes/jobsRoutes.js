@@ -6,7 +6,7 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
-      client.query('SELECT jobs.*, clients.name, jobs.id FROM clients FULL OUTER JOIN jobs ON clients.id=jobs.client_id')
+      client.query('SELECT jobs.*, clients.name, jobs.id FROM clients RIGHT OUTER JOIN jobs ON clients.id=jobs.client_id')
         .then(function (result) {
           client.release();
           res.send(result.rows);
@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
   var newJob = req.body;
   console.log('new Job: ', newJob);
   pool.connect()
-    .then(function (result) {
+    .then(function (client) {
       client.query('INSERT INTO jobs (status , task_1, task_2, tasks_cost, materials, materials_cost, total_cost, date, client_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
         [newJob.status, newJob.task_1, newJob.task_2, newJob.tasks_cost, newJob.materials, newJob.materials_cost, newJob.total_cost, newJob.date, newJob.client_id])
         .then(function (result) {

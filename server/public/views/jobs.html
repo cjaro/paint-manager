@@ -15,12 +15,6 @@
   </script>
 
 
-  <!-- <input sweetalert sweet-options="{title: 'Are you sure?',text: 'You will not be able to recover this imaginary file!',type: 'warning',showCancelButton: true,confirmButtonColor: '#DD6B55',confirmButtonText: 'Yes, delete it!',cancelButtonText: 'No, cancel plx!'}" sweet-confirm-option="{title: 'Deleted!',text: 'Your imaginary file has been deleted.',type: 'success'}" sweet-cancel-option="{title: 'Cancelled!',text: 'Your imaginary file is safe',type: 'error'}" type="submit" name="login-submit" sweet-on-cancel="checkCancel()" sweet-on-confirm="checkConfirm()" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
-  <a href="" sweetalert sweet-options="{{sweet.option}}" sweet-confirm-option="{{sweet.confirm}}" sweet-cancel-option="{{sweet.cancel}}"   sweet-on-cancel="checkCancel()" sweet-on-confirm="checkConfirm()"  class="btn" >Try It</a> -->
-
-
-
-
   <uib-accordion close-others = "true">
 
     <button class="btn btn-primary" id="inputButton" ng-click="jc.addJob(ac.newJob)">New Job</button>
@@ -55,16 +49,20 @@
       <form>
         <div class="form-group">
           <div class="col-xs-3">
-            <label for="ex1">Client :</label>
-          <select ng-model="jobs.client_id"
-          ng-options="job.name for job in jc.jobs.list">
+            <label for="ex1">Client:</label>
+          <select ng-model="job.client_id"
+          ng-options="client.id as client.name for client in jc.clients.list">
           <option value="">Please select client name</option>
         </select>
           </div>
           <div class="col-xs-3">
             <label for="ex1">Status :</label>
-          <select ng-model="jobs.status"
-          ng-options="status for status in jc.jobs.list">
+          <select ng-model="job.status">
+          <option value="">Please select status</option>
+          <option value="quote">Quote</option>
+          <option value="active">Active</option>
+          <option value="cancelled">Cancelled</option>
+          <option value="complete">Complete</option>
         </select>
           </div>
           <div class="col-xs-3">

@@ -1,4 +1,4 @@
-app.controller('JobsController', ['JobsFactory', function(JobsFactory){
+app.controller('JobsController', ['JobsFactory', 'ClientsFactory', function(JobsFactory, ClientsFactory){
     console.log('Jobs Controller Loaded');
 
     var self = this;
@@ -8,6 +8,7 @@ app.controller('JobsController', ['JobsFactory', function(JobsFactory){
      self.deleteJob = JobsFactory.deleteJob;
      self.saveJob = JobsFactory.saveJob;
      self.oneAtATime = true;
+     self.clients = ClientsFactory.clients;
 
   self.groups = [
     {
