@@ -6,21 +6,27 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 body{
-/*background-image: url("/assets/IMG_5089.jpg");*/
-background-color: Gainsboro ;
+/*background-image: url("/assets/IMG_5089_copy.jpg");*/
+
 }
 
 button {
   float: right;
   padding: 5px 0 5px 0;
 }
-#btn-group-jobs{
-  padding: 105px 16px 5px 0;
+.breadcrumb {
+  background-color: black;
 }
+
+a {
+  color: white;
+}
+
 .btn-group {
   float: right;
   padding: 5px 16px 5px 0;
 }
+
 th, td {
     padding: 15px;
     margin: 0 0 0 0;
@@ -34,9 +40,19 @@ td {
   text-align: left !important;
 }
 
+h1 {
+  color: black !important;
+}
+
 .jumbotron {
   /*background-image: url("/assets/1019.jpg");*/
-  background-color: #fff;
+  background-color: white;
+
+}
+
+table {
+  border-color: none !important;
+  margin: 0 0 0 0;
 }
 
 .table {
@@ -48,43 +64,52 @@ td {
 .table-fixed tr:after {
   content: normal;
   visibility: hidden;
-  clear: both;
-}*/
+  /*clear: both;*/
+}
+
 .table-fixed thead {
   width: 100%;
 }
+
 .table-fixed thead th {
-  height: 30px
+  /*height: 30px*/
 }
+
 .table-fixed tbody {
   height: 100%;
   /*overflow-y: hidden;*/
   width:100%;
 }
+
 .table-fixed tbody td,
 .table-fixed thead > tr> th {
   float: none;
-  border-bottom-width:0;
+  border-bottom: none !important;
+  border-top: none !important;
+
 }
-
-
+.table>thead>tr>th{
+border-bottom: none !important;
+border-top: none !important;
+}
 .table tbody>tr>td{
   border-top: none !important;
   margin-bottom: 0;
   text-align: center;
 }
 .panel{
-  border: none !important;
+  /*border: none !important;*/
   padding: 0 0 0 0 !important;
 }
 
 .panel-body {
-  padding: 0 0 0 0 !important;
+  padding: 0 0 20px 0 !important;
 }
 
 .panel-heading{
   padding: 0 0 0 0 !important;
   border-bottom: none !important;
+  background-color:  WhiteSmoke !important;
 }
 .panel-heading .panel-title:after{
    /* symbol for "opening" panels */
@@ -96,8 +121,8 @@ td {
 }
 .panel-heading.collapsed .panel-title:after  {
    /* symbol for "collapsed" panels */
-   content: "\e081";
-     padding: 0 0 !important;
+  content: "\e081";
+  padding: 0 0 !important;
 }
 /*.pad-left {
    padding-left:0;

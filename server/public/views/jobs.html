@@ -43,7 +43,7 @@
           <tbody>
             <tr>
               <td><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></td>
-              <td class="col-xs-3" scope="row"> {{job.client_id}}</td>
+              <td class="col-xs-3" scope="row"> {{job.name}}</td>
               <td class="col-xs-3" scope="row">{{job.status}}</td>
               <td class="col-xs-3"scope="row">{{job.date}}</td>
               <td class="col-xs-3" scope="row">{{job.total_cost}}</td>
@@ -54,7 +54,24 @@
       </uib-accordion-heading>
       <form>
         <div class="form-group">
-          <div class="col-xs-1">
+          <div class="col-xs-3">
+            <label for="ex1">Client :</label>
+          <select ng-model="jobs.client_id"
+          ng-options="job.name for job in jc.jobs.list">
+          <option value="">Please select client name</option>
+        </select>
+          </div>
+          <div class="col-xs-3">
+            <label for="ex1">Status :</label>
+          <select ng-model="jobs.status"
+          ng-options="status for status in jc.jobs.list">
+        </select>
+          </div>
+          <div class="col-xs-3">
+            <label for="ex7">Date:</label>
+            <input ng-model="job.date" class="form-control" id="ex7" type="text">
+          </div>
+          <div class="col-xs-10">
             <label for="ex1">Task 1:</label>
             <input ng-model="job.task_1" class="form-control" id="ex1" type="text">
           </div>
@@ -62,24 +79,30 @@
             <label for="ex2">Task_2:</label>
             <input ng-model="job.task_2" class="form-control" id="ex2" type="text">
           </div>
-          <div class="col-xs-4">
+          <div class="col-xs-2">
             <label for="ex3">Tasks $:</label>
             <input ng-model="job.tasks_cost" class="form-control" id="ex3" type="text">
           </div>
           <div class="col-xs-10">
-            <label for="ex2">Address:</label>
-            <input ng-model="job.address" class="form-control" id="ex2" type="text">
+            <label for="ex4">Materials:</label>
+            <input ng-model="job.materials" class="form-control" id="ex4" type="text">
           </div>
-          <div class="col-xs-4">
-            <label for="ex3">Notes:</label>
-            <input ng-model="job.notes" class="form-control" id="ex3" type="text">
+          <div class="col-xs-2">
+            <label for="ex5">Materials $:</label>
+            <input ng-model="job.materials_cost" class="form-control" id="ex5" type="text">
+          </div>
+          <div class="col-xs-2">
+            <label for="ex6">Total $:</label>
+            <input ng-model="job.total_cost" class="form-control" id="ex6" type="text">
+          </div>
+
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button class="btn btn-danger" type="button" ng-click="jc.deleteJob(job.id)">Delete</button>
+            <button class="btn btn-primary" type="button" ng-click="jc.saveJob(job)">Save</button>
           </div>
         </div><!-- end form group -->
       </form>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button class="btn btn-danger" type="button" ng-click="jc.deleteJob(job.id)">Delete</button>
-        <button class="btn btn-primary" type="button" ng-click="jc.saveJob(job)">Save</button>
-      </div>
+
 
     </div>
 
