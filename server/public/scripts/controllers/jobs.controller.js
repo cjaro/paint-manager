@@ -1,4 +1,4 @@
-app.controller('JobsController', ['JobsFactory', 'ClientsFactory', function(JobsFactory, ClientsFactory){
+app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$scope', function(JobsFactory, ClientsFactory, $scope){
     console.log('Jobs Controller Loaded');
 
     var self = this;
@@ -9,6 +9,8 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', function(Jobs
      self.saveJob = JobsFactory.saveJob;
      self.oneAtATime = true;
      self.clients = ClientsFactory.clients;
+
+
 
   self.groups = [
     {
@@ -34,7 +36,10 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', function(Jobs
     isFirstDisabled: false,
   };
 
-
+  self.updateTaskTotal = function(thisJob) {
+    console.log('updating job totals');
+    thisJob.total_cost = thisJob.tasks_cost + thisJob.materials_cost;
+  }
 
 
 

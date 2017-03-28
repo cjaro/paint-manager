@@ -39,8 +39,8 @@
               <td><i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></td>
               <td class="col-xs-3" scope="row"> {{job.name}}</td>
               <td class="col-xs-3" scope="row">{{job.status}}</td>
-              <td class="col-xs-3"scope="row">{{job.date}}</td>
-              <td class="col-xs-3" scope="row">{{job.total_cost}}</td>
+              <td class="col-xs-3"scope="row">{{job.date | date: "mediumDate"}}</td>
+              <td class="col-xs-3" scope="row">{{job.total_cost | currency:"$"}}</td>
               <td class="col-xs-3" scope="row">{{job.id}}</td>
             </tr>
           </tbody>
@@ -49,62 +49,87 @@
       <form>
         <div class="form-group">
           <div class="col-xs-3">
-            <label for="ex1">Client:</label>
-          <select ng-model="job.client_id"
-          ng-options="client.id as client.name for client in jc.clients.list">
-          <option value="">Please select client name</option>
-        </select>
+            <div class="form-group">
+              <label for="ex1">Client:</label>
+              <select class="form-control" ng-model="job.client_id"
+              ng-options="client.id as client.name for client in jc.clients.list">
+              <option value="">Please select client name</option>
+            </select>
           </div>
-          <div class="col-xs-3">
-            <label for="ex1">Status :</label>
-          <select ng-model="job.status">
-          <option value="">Please select status</option>
-          <option value="quote">Quote</option>
-          <option value="active">Active</option>
-          <option value="cancelled">Cancelled</option>
-          <option value="complete">Complete</option>
-        </select>
-          </div>
-          <div class="col-xs-3">
-            <label for="ex7">Date:</label>
-            <input ng-model="job.date" class="form-control" id="ex7" type="text">
-          </div>
-          <div class="col-xs-10">
-            <label for="ex1">Task 1:</label>
-            <input ng-model="job.task_1" class="form-control" id="ex1" type="text">
-          </div>
-          <div class="col-xs-10">
-            <label for="ex2">Task_2:</label>
-            <input ng-model="job.task_2" class="form-control" id="ex2" type="text">
-          </div>
-          <div class="col-xs-2">
-            <label for="ex3">Tasks $:</label>
-            <input ng-model="job.tasks_cost" class="form-control" id="ex3" type="text">
-          </div>
-          <div class="col-xs-10">
-            <label for="ex4">Materials:</label>
-            <input ng-model="job.materials" class="form-control" id="ex4" type="text">
-          </div>
-          <div class="col-xs-2">
-            <label for="ex5">Materials $:</label>
-            <input ng-model="job.materials_cost" class="form-control" id="ex5" type="text">
-          </div>
-          <div class="col-xs-2">
-            <label for="ex6">Total $:</label>
-            <input ng-model="job.total_cost" class="form-control" id="ex6" type="text">
-          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+          <label for="ex1">Status :</label><br>
+          <select class="form-control" ng-model="job.status">
+            <option value="">Please select status</option>
+            <option value="quote">Quote</option>
+            <option value="active">Active</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="complete">Complete</option>
+          </select>
+        </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+          <label for="ex7">Date:</label>
+          <input ng-model="job.date" class="form-control" id="ex7" type="date">
+        </div>
+        </div>
 
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button class="btn btn-danger" type="button" ng-click="jc.deleteJob(job.id)">Delete</button>
-            <button class="btn btn-primary" type="button" ng-click="jc.saveJob(job)">Save</button>
-          </div>
-        </div><!-- end form group -->
-      </form>
+        <div class="col-xs-10">
+          <div class="form-group">
+          <label for="ex1">Task 1:</label>
+          <input ng-model="job.task_1" class="form-control" id="ex1" type="text">
+        </div>
+        </div>
+
+        <div class="col-xs-10">
+          <div class="form-group">
+          <label for="ex2">Task_2:</label>
+          <input ng-model="job.task_2" class="form-control" id="ex2" type="text">
+        </div>
+        </div>
+
+        <div class="col-xs-2">
+          <div class="form-group">
+          <label for="ex3">Tasks $:</label>
+          <input ng-model="job.tasks_cost" class="form-control" id="ex3" type="number" ng-change="jc.updateTaskTotal(job)">
+        </div>
+        </div>
+
+        <div class="col-xs-10">
+          <div class="form-group">
+          <label for="ex4">Materials:</label>
+          <input ng-model="job.materials" class="form-control" id="ex4" type="text">
+        </div>
+        </div>
+
+        <div class="col-xs-2">
+          <div class="form-group">
+          <label for="ex5">Materials $:</label>
+          <input ng-model="job.materials_cost" class="form-control" id="ex5" type="number" ng-change="jc.updateTaskTotal(job)">
+        </div>
+        </div>
+
+        <div class="col-xs-2">
+          <div class="form-group">
+          <label for="ex6">Total $:</label>
+          <!-- <span>{{job.tasks_cost+job.materials_cost}}</span> -->
+          <input ng-model="job.total_cost" class="form-control" id="ex6" type="number">
+        </div>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button class="btn btn-danger" type="button" ng-click="jc.deleteJob(job.id)">Delete</button>
+          <button class="btn btn-primary" type="button" ng-click="jc.saveJob(job)">Save</button>
+        </div>
+      </div><!-- end form group -->
+    </form>
 
 
-    </div>
+  </div>
 
 
 
-  </uib-accordion>
+</uib-accordion>
 </div>
