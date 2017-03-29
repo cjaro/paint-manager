@@ -6,7 +6,7 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 body{
-background-image: url("/assets/IMG_5089_copy.jpg");
+/*background-image: url("/assets/IMG_5089_copy.jpg");*/
 
 }
 
@@ -34,7 +34,12 @@ th, td {
 }
 th {
   font-size: 18px;
-  text-align: center !important;
+  text-align: left !important;
+  padding-left: 90px !important;
+
+}
+th::selection{
+  background: inherit;
 }
 td {
   text-align: left !important;
@@ -58,6 +63,12 @@ table {
 .table {
   margin: 0 0 0 0;
   /*overflow-y: hidden;*/
+}
+#thead-space .col-xs-2 {
+  width: 23%;
+}
+i#gylphicon{
+  padding: 0 20px 0 20px !important;
 }
 
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th { display: block; }
@@ -95,7 +106,7 @@ border-top: none !important;
 .table tbody>tr>td{
   border-top: none !important;
   margin-bottom: 0;
-  text-align: center;
+  text-align: left;
 }
 .panel{
   /*border: none !important;*/

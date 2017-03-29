@@ -1,14 +1,14 @@
 app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$scope', function(JobsFactory, ClientsFactory, $scope){
-    console.log('Jobs Controller Loaded');
+  console.log('Jobs Controller Loaded');
 
-    var self = this;
-     self.jobs = JobsFactory.jobs;
-     self.getJobs = JobsFactory.getJobs;
-     self.addJob = JobsFactory.addJob;
-     self.deleteJob = JobsFactory.deleteJob;
-     self.saveJob = JobsFactory.saveJob;
-     self.oneAtATime = true;
-     self.clients = ClientsFactory.clients;
+  var self = this;
+  self.jobs = JobsFactory.jobs;
+  self.getJobs = JobsFactory.getJobs;
+  self.addJob = JobsFactory.addJob;
+  self.deleteJob = JobsFactory.deleteJob;
+  self.saveJob = JobsFactory.saveJob;
+  self.oneAtATime = true;
+  self.clients = ClientsFactory.clients;
 
 
 
@@ -41,6 +41,25 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$scope', fun
     thisJob.total_cost = thisJob.tasks_cost + thisJob.materials_cost;
   }
 
+  self.columnField = undefined;
+  self.reverse = false;
+
+  self.columnSort = function (columnName) {
+    console.log('column name', columnName);
+    if (self.columnField === columnName) {
+      self.reverse = !self.reverse;
+    } else {
+      self.columnField = columnName;
+      self.reverse = false;
+    }
+}
+
+    self.isSortUp = function (columnName) {
+      return self.columnField === columnName && !self.reverse;
+    };
+    self.isSortDown = function (columnName) {
+      return self.columnField === columnName && self.reverse;
+    };
 
 
-}]);
+  }]);
