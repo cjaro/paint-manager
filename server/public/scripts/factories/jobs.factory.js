@@ -3,6 +3,7 @@ app.factory('JobsFactory', ['$http', function($http){
 
 
   var jobs = { list: [] };
+  var clientJobs = { list: [] };
 
   getJobs();
 
@@ -52,11 +53,23 @@ app.factory('JobsFactory', ['$http', function($http){
     });
   }
 
+  function getJobsForClient(clientId){
+    $http({
+      method: 'GET',
+      url: '/jobs/' + clientId
+    }).then(function(response){
+      console.log(response.data);
+      clientJobs.list = response.data;
+    });
+  }
+
   return {
     jobs: jobs,
     addJob: addJob,
     deleteJob: deleteJob,
     saveJob: saveJob,
+    getJobsForClient: getJobsForClient,
+    clientJobs: clientJobs
   }
 
 }]);

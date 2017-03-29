@@ -6,20 +6,55 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 
 body{
-/*background-image: url("/assets/IMG_5089_copy.jpg");*/
+background-image: url("/assets/IMG_5089_copy.jpg");
 
 }
 
 button {
   float: right;
-  padding: 5px 0 5px 0;
+  padding: 10px 0 5px 0;
 }
-.breadcrumb {
+
+.btn-primary{
+  color: #2D4671;
+  border: 1.5px solid #2D4671;
+  background: transparent;
+
+}
+
+.btn-danger{
+  color: #2D4671;
+  border: 1.5px solid #2D4671;
+  background: transparent;
+}
+/*.breadcrumb {
   background-color: black;
 }
 
 a {
   color: white;
+  font-size: 16;
+}*/
+.breadcrumb {
+  background: #2D4671;
+  border: 0px solid rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  display: block;
+}
+.breadcrumb li {
+  font-size: 15px;
+}
+.breadcrumb a {
+  color: white;
+}
+.breadcrumb a:hover {
+  color: #7689A9;
+}
+.breadcrumb>.active {
+  color: rgba(209, 209, 209, 1);
+}
+.breadcrumb>li+li:before {
+  color: rgba(255, 255, 255, 1); content: "\002F\00a0";
 }
 
 .btn-group {
@@ -36,6 +71,7 @@ th {
   font-size: 18px;
   text-align: left !important;
   padding-left: 90px !important;
+  color: #2D4671;
 
 }
 th::selection{
@@ -43,21 +79,29 @@ th::selection{
 }
 td {
   text-align: left !important;
+  color: #2D4671;
 }
 
 h1 {
-  color: black !important;
+  color: #2D4671 !important;
 }
 
 .jumbotron {
   /*background-image: url("/assets/1019.jpg");*/
-  background-color: white;
-
+  background-color: transparent;
 }
 
 table {
-  border-color: none !important;
+  border-color: #2D4671 !important;
   margin: 0 0 0 0;
+}
+
+/*.panel .panel-title:nth-child(odd){
+  background-color:#2D4671 ;
+}*/
+
+table tr:nth-child(odd){
+  background-color: ;
 }
 
 .table {
@@ -65,7 +109,7 @@ table {
   /*overflow-y: hidden;*/
 }
 #thead-space .col-xs-2 {
-  width: 23%;
+  width: 22%;
 }
 i#gylphicon{
   padding: 0 20px 0 20px !important;
@@ -120,7 +164,7 @@ border-top: none !important;
 .panel-heading{
   padding: 0 0 0 0 !important;
   border-bottom: none !important;
-  background-color:  WhiteSmoke !important;
+  background-color:  white !important;
 }
 .panel-heading .panel-title:after{
    /* symbol for "opening" panels */

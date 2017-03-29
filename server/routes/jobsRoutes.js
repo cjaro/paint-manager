@@ -81,7 +81,24 @@ router.put('/update/:id', function(req, res) {
     });
 });
 
-
+// return all client jobs
+router.get('/:id', function (req, res) {
+  pool.connect()
+    .then(function (client) {
+      client.query('SELECT * FROM jobs WHERE client_id = $1',
+      [req.params.id])
+        .then(function (result) {
+          client.release();
+          res.send(result.rows);
+        })
+        .catch(function (err) {
+          console.log('error on SELECT', err);
+          res.sendStatus(500);
+        });
+      }).catch(function(err) {
+        console.log('error connecting to database:', err);
+    });
+});
 
 
 
