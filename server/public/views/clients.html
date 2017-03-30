@@ -15,7 +15,7 @@
   </script>
 
 
-  <uib-accordion close-others = "true">
+  <uib-accordion close-others = "true" >
 
     <button class="btn btn-primary" id="inputButton" ng-click="ac.addClient(ac.newClient)">New Client</button>
     <table class="table">
@@ -48,47 +48,53 @@
         <div class="form-group">
           <div class="col-xs-4">
             <div class="form-group">
-            <label for="ex1">Name:</label>
-            <input ng-model="client.name" class="form-control" id="ex1" type="text">
-          </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="form-group">
-            <label for="ex2">Email:</label>
-            <input ng-model="client.email" class="form-control" id="ex2" type="text">
-          </div>
+              <label for="ex1">Name:</label>
+              <input ng-model="client.name" class="form-control" id="ex1" type="text">
+            </div>
           </div>
           <div class="col-xs-4">
             <div class="form-group">
-            <label for="ex3">Phone:</label>
-            <input ng-model="client.phone" class="form-control" id="ex3" type="text">
+              <label for="ex2">Email:</label>
+              <input ng-model="client.email" class="form-control" id="ex2" type="text">
+            </div>
           </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="ex3">Phone:</label>
+              <input ng-model="client.phone" class="form-control" id="ex3" type="text">
+            </div>
           </div>
           <div class="col-xs-8">
             <div class="form-group">
-            <label for="ex2">Address:</label>
-            <input ng-model="client.address" class="form-control" id="ex2" type="text">
-          </div>
+              <label for="ex2">Address:</label>
+              <input ng-model="client.address" class="form-control" id="ex2" type="text">
+            </div>
           </div>
           <div class="col-xs-4">
             <div class="form-group">
-            <label for="ex3">Notes:</label>
-            <input ng-model="client.notes" class="form-control" id="ex3" type="text">
-          </div>
+              <label for="ex3">Notes:</label>
+              <input ng-model="client.notes" class="form-control" id="ex3" type="text">
+            </div>
           </div>
         </div><!-- end form group -->
       </form>
       {{clientJobs}}
-      <div ng-repeat="job in ac.clientJobs.list">{{job.id}}{{job.total_cost}}</div>
+
+
       <button class="btn btn-info" type="button" ng-click="ac.revealJobs(client.id)">click</button>
-              <div class="btn-group" role="group" aria-label="Basic example">
+<div ng-repeat="job in ac.clientJobs.list" ng-click="ac.revealJobs(client.id)"><li><a href="#!jobs/{{job.id}}">Job Id: {{job.id}}</a></li></div>
+
+      <div class="btn-group" role="group" aria-label="Basic example">
         <button class="btn btn-danger" type="button" ng-click="ac.deleteClient(client.id)">Delete</button>
         <button class="btn btn-primary" type="button" ng-click="ac.saveClient(client)">Save</button>
       </div>
 
     </div>
-
-
-
   </uib-accordion>
 </div>
+
+<!-- MODAL  -->
+<!-- <div ng-controller="ModalController as mc"</div>
+<div class="well"><button class="btn btn-default" type="button" ng-click="showModal()">Click to open modal</button></div>
+
+<div class="alert alert-success hide" ng-class="msg == '' ? 'hide': 'show'">{{msg}}</div> -->

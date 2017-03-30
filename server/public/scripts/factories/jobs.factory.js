@@ -63,13 +63,20 @@ app.factory('JobsFactory', ['$http', function($http){
     });
   }
 
+
+
+
+
+
+
   return {
     jobs: jobs,
     addJob: addJob,
     deleteJob: deleteJob,
     saveJob: saveJob,
     getJobsForClient: getJobsForClient,
-    clientJobs: clientJobs
+    clientJobs: clientJobs,
+
   }
 
 }]);

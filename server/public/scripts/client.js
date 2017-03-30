@@ -2,18 +2,23 @@ var app = angular.module('PaintApp', ['ngRoute', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
+    .when('/jobs/:expandJobId?', {
+      templateUrl: '/views/jobs.html',
+      controller: 'JobsController',
+      controllerAs: 'jc'
+    })
     .when('/jobs', {
       templateUrl: '/views/jobs.html',
       controller: 'JobsController',
       controllerAs: 'jc'
     })
-    .when('/accordian', {
-      templateUrl: '/views/accordian.html',
-      controller: 'AccordionDemoCtrl',
+    .when('/clients', {
+      templateUrl: '/views/clients.html',
+      controller: 'ClientsController',
       controllerAs: 'ac'
     })
     .otherwise({
-      redirectTo: 'accordian'
+      redirectTo: 'clients'
     })
 }]);
 

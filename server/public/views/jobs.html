@@ -4,7 +4,7 @@
       <div class="panel-title" style="none">
         <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
           <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
-            {{heading}}
+            <!-- {{heading}} -->
           </span>
         </a>
       </div>
@@ -33,10 +33,11 @@
       </thead>
     </table>
 
-
-    <div uib-accordion-group ng-init="status.open = $first"  is-open="status.open"  class="panel-default" ng-repeat="job in (jc.jobs.list|orderBy:jc.columnField:jc.reverse|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
-
-      <!-- style="overflow-y: hidden" -->
+<!-- ng-init="status.open = $first"  -->
+<!-- ng-init="status.open = true"  -->
+<!-- is-open="status.open = {{job.expandAttr}}" -->
+<!-- is-open="status.open = {{job.isOpened}}" -->
+    <div uib-accordion-group ng-init="status.open = true"  is-open="job.id == jc.expandJob" class="panel-default" ng-repeat="job in (jc.jobs.list|orderBy:jc.columnField:jc.reverse|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
       <uib-accordion-heading>
         <table class="table" align="center">
           <tbody>
@@ -57,7 +58,7 @@
         <div class="form-group">
           <div class="col-xs-3">
             <div class="form-group">
-              <label for="ex1">Client:</label>
+              <label for="ex1">Client: </label>
               <select class="form-control" ng-model="job.client_id"
               ng-options="client.id as client.name for client in jc.clients.list">
               <option value="">Please select client name</option>
@@ -133,10 +134,7 @@
         </div>
       </div><!-- end form group -->
     </form>
-
-
   </div>
-
 
 
 </uib-accordion>
