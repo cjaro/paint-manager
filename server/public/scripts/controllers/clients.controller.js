@@ -7,7 +7,6 @@ app.controller('ClientsController', ['ClientsFactory', 'JobsFactory', '$routePar
      self.deleteClient = ClientsFactory.deleteClient;
      self.saveClient = ClientsFactory.saveClient;
      self.clientJobs = JobsFactory.clientJobs;
-     self.jobView = JobsFactory.jobView;
      self.oneAtATime = true;
 
 
@@ -17,11 +16,13 @@ app.controller('ClientsController', ['ClientsFactory', 'JobsFactory', '$routePar
   self.groups = [
     {
       title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
+      content: 'Dynamic Group Body - 1',
+      open: false
     },
     {
       title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
+      content: 'Dynamic Group Body - 2',
+      open: false
     }
   ];
 
@@ -58,17 +59,14 @@ app.controller('ClientsController', ['ClientsFactory', 'JobsFactory', '$routePar
       return self.columnField === columnName && self.reverse;
     };
 
+
 // click to get jobs id
 self.revealJobs = function (clientId){
   console.log('thing', clientId);
   JobsFactory.getJobsForClient(clientId)
 }//call this function!!
 
-
-// self.goToJobs = function(jobView){
-//     var jobLocation = '/jobs';
-//     self.location(jobLocation);
-// }
+// getJobsForClient()
 
 
 

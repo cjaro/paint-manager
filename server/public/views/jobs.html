@@ -22,7 +22,6 @@
     <table class="table">
       <thead>
         <tr>
-
           <!-- <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-up': isSortUp, 'glyphicon-chevron- down': isSortDown}"> -->
           <th class="col-xs-2"ng-click="jc.columnSort('date')">Date </th>
           <th class="col-xs-2" ng-click="jc.columnSort('status')">Status </th>
@@ -37,7 +36,11 @@
 <!-- ng-init="status.open = true"  -->
 <!-- is-open="status.open = {{job.expandAttr}}" -->
 <!-- is-open="status.open = {{job.isOpened}}" -->
-    <div uib-accordion-group ng-init="status.open = true"  is-open="job.id == jc.expandJob" class="panel-default" ng-repeat="job in (jc.jobs.list|orderBy:jc.columnField:jc.reverse|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
+    <div uib-accordion-group ng-init="status.open"  is-open="job.id == jc.expandJob" class="panel-default" ng-repeat="job in (jc.jobs.list|orderBy:jc.columnField:jc.reverse|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
+
+      <div class="panel-heading">
+
+
       <uib-accordion-heading>
         <table class="table" align="center">
           <tbody>
@@ -53,6 +56,8 @@
           </tbody>
         </table>
       </uib-accordion-heading>
+
+      </div>
 
       <form>
         <div class="form-group">

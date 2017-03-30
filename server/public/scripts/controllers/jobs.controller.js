@@ -10,15 +10,15 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$routeParams
   self.clients = ClientsFactory.clients;
   self.oneAtATime = true;
   self.expandJob = $routeParams.expandJobId;
-  self.index = 0;
-
-  self.jobs.list.forEach(function(x, i){
-    if(x.id == self.expandJob){
-      self.index = i;
-    }
-
-    console.log('self index', self.index);
-  });
+  // self.index = 0;
+  //
+  // self.jobs.list.forEach(function(x, i){
+  //   if(x.id == self.expandJob){
+  //     self.index = i;
+  //   }
+  //
+  //   console.log('self index', self.index);
+  // });
   //
   //
   // self.jobs.list.forEach(function(item) {

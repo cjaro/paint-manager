@@ -30,13 +30,16 @@
     </table>
     <div uib-accordion-group ng-init="status.open = $first"  is-open="status.open"  class="panel-default" ng-repeat="client in  (ac.clients.list|orderBy:ac.columnField:ac.reverse|emptyToStart:'name')" aria-expanded="false" template-url="group-template.html">
 
-      <!-- style="overflow-y: hidden" -->
+
+
       <uib-accordion-heading>
+        <div class="panel-title" ng-repeat="job in ac.clientJobs.list" ></div>
+  <div ng-repeat="job in ac.clientJobs.list" ></div>
         <table class="table" align="center">
           <tbody>
-            <tr>
+            <tr ng-click="ac.revealJobs(client.id)">
               <td><i class="pull-right glyphicon" id="gylphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i></td>
-              <td class="col-xs-3" scope="row"> {{client.name}}</td>
+              <td class="col-xs-3" scope="row" > {{client.name}}</td>
               <td class="col-xs-3" scope="row">{{client.email}}</td>
               <td class="col-xs-3"scope="row">{{client.phone}}</td>
               <td class="col-xs-3" scope="row">{{client.address}}</td>
@@ -44,6 +47,8 @@
           </tbody>
         </table>
       </uib-accordion-heading>
+
+
       <form>
         <div class="form-group">
           <div class="col-xs-4">
