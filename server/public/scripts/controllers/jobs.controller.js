@@ -10,6 +10,13 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$routeParams
   self.clients = ClientsFactory.clients;
   self.oneAtATime = true;
   self.expandJob = $routeParams.expandJobId;
+
+  JobsFactory.getJobs();
+
+// if(expandJobId.status == isOpen){
+//
+// }
+
   // self.index = 0;
   //
   // self.jobs.list.forEach(function(x, i){
@@ -40,11 +47,13 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$routeParams
       self.groups = [
         {
           title: 'Dynamic Group Header - 1',
-          content: 'Dynamic Group Body - 1'
+          content: 'Dynamic Group Body - 1',
+          open: true
         },
         {
           title: 'Dynamic Group Header - 2',
-          content: 'Dynamic Group Body - 2'
+          content: 'Dynamic Group Body - 2',
+          open: true
         }
       ];
 
@@ -88,5 +97,8 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$routeParams
         return self.columnField === columnName && self.reverse;
       };
 
+self.linkClick = function(jobId){
+  $location.path("#!/jobs/" + jobId)
+}
 
     }]);

@@ -1,11 +1,9 @@
-app.factory('JobsFactory', ['$http', function($http){
+app.factory('JobsFactory', ['$http', '$routeParams', function($http, $routeParams){
   console.log('Jobs Factory Loaded');
 
 
   var jobs = { list: [] };
   var clientJobs = { list: [] };
-
-  getJobs();
 
   function getJobs(){
     $http({
@@ -13,6 +11,9 @@ app.factory('JobsFactory', ['$http', function($http){
       url: '/jobs'
     }).then(function(response){
       console.log(response.data);
+      response.data.forEach(function(job) {
+        job.isOpen = job.id == $routeParams.expandJob;
+      });
       jobs.list = response.data;
     });
   }//end function
@@ -74,6 +75,7 @@ app.factory('JobsFactory', ['$http', function($http){
     addJob: addJob,
     deleteJob: deleteJob,
     saveJob: saveJob,
+    getJobs: getJobs,
     getJobsForClient: getJobsForClient,
     clientJobs: clientJobs,
 
