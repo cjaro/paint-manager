@@ -1,17 +1,13 @@
 app.controller('ClientsController', ['ClientsFactory', 'JobsFactory', '$routeParams', function(ClientsFactory, JobsFactory, $routeParams){
-    console.log('Clients Controller Loaded');
-    var self = this;
-     self.clients = ClientsFactory.clients;
-     self.getClients = ClientsFactory.getClients;
-     self.addClient = ClientsFactory.addClient;
-     self.deleteClient = ClientsFactory.deleteClient;
-     self.saveClient = ClientsFactory.saveClient;
-     self.clientJobs = JobsFactory.clientJobs;
-     self.oneAtATime = true;
-
-
-
-
+  console.log('Clients Controller Loaded');
+  var self = this;
+  self.clients = ClientsFactory.clients;
+  self.getClients = ClientsFactory.getClients;
+  self.addClient = ClientsFactory.addClient;
+  self.deleteClient = ClientsFactory.deleteClient;
+  self.saveClient = ClientsFactory.saveClient;
+  self.clientJobs = JobsFactory.clientJobs;
+  self.oneAtATime = true;
 
   self.groups = [
     {
@@ -52,23 +48,18 @@ app.controller('ClientsController', ['ClientsFactory', 'JobsFactory', '$routePar
     }
   }
 
-    self.isSortUp = function (columnName) {
-      return self.columnField === columnName && !self.reverse;
-    };
-    self.isSortDown = function (columnName) {
-      return self.columnField === columnName && self.reverse;
-    };
+  self.isSortUp = function (columnName) {
+    return self.columnField === columnName && !self.reverse;
+  };
+  self.isSortDown = function (columnName) {
+    return self.columnField === columnName && self.reverse;
+  };
 
-
-// click to get jobs id
-self.revealJobs = function (clientId){
-  console.log('thing', clientId);
-  JobsFactory.getJobsForClient(clientId)
-}//call this function!!
-
-// getJobsForClient()
-
-
+  // click to get jobs id
+  self.revealJobs = function (clientId){
+    console.log('thing', clientId);
+    JobsFactory.getJobsForClient(clientId)
+  }//call this function!!
 
 
 }]);

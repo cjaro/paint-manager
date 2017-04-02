@@ -53,14 +53,10 @@ app.factory('ClientsFactory', ['$http', function($http){
     });
   }
 
-
-
   return {
     clients: clients,
     addClient: addClient,
     deleteClient: deleteClient,
     saveClient: saveClient,
-
   }
-
 }]);

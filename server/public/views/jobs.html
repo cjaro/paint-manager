@@ -14,20 +14,16 @@
     </div>
   </script>
 
-
   <uib-accordion close-others = "true">
-
     <button class="btn btn-primary" id="inputButton" ng-click="jc.addJob(ac.newJob)">New Job</button>
-
     <table class="table">
       <thead>
         <tr>
-          <!-- <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-up': isSortUp, 'glyphicon-chevron- down': isSortDown}"> -->
-          <th class="col-xs-2"ng-click="jc.columnSort('date')">Date </th>
-          <th class="col-xs-2" ng-click="jc.columnSort('status')">Status </th>
-          <th class="col-xs-2" ng-click="jc.columnSort('jc.jobs.list.name')">Client</th>
-          <th class="col-xs-2"ng-click="jc.columnSort('total_cost')">Total Cost  </th>
-          <th class="col-xs-2" ng-click="jc.columnSort('id')">Job # </th>
+          <th class="col-xs-2"ng-click="jc.columnSort('date')">Quote Date ⇅</th>
+          <th class="col-xs-2" ng-click="jc.columnSort('status')">Status ⇅</th>
+          <th class="col-xs-2" ng-click="jc.columnSort('jc.jobs.list.name')">Client ⇅</th>
+          <th class="col-xs-2"ng-click="jc.columnSort('total_cost')">Total Cost ⇅</th>
+          <th class="col-xs-2" ng-click="jc.columnSort('id')">Job # ⇅</th>
         </tr>
       </thead>
     </table>
@@ -84,8 +80,8 @@
 
         <div class="col-xs-3">
           <div class="form-group">
-            <label for="ex7">Date:</label>
-            <input ng-model="job.date" class="form-control" id="ex7" type="date">
+            <label for="ex7">Quote Date:</label>
+            <input ng-model="job.date" class="form-control" id="ex7" value="job.date" type="date">
           </div>
         </div>
 
@@ -98,14 +94,14 @@
 
         <div class="col-xs-10">
           <div class="form-group">
-            <label for="ex2">Task_2:</label>
+            <label for="ex2">Task 2:</label>
             <input ng-model="job.task_2" class="form-control" id="ex2" type="text">
           </div>
         </div>
 
         <div class="col-xs-2">
           <div class="form-group">
-            <label for="ex3">Tasks $:</label>
+            <label for="ex3">Labor Costs:</label>
             <input ng-model="job.tasks_cost" class="form-control" id="ex3" type="number" ng-change="jc.updateTaskTotal(job)">
           </div>
         </div>
@@ -119,7 +115,7 @@
 
         <div class="col-xs-2">
           <div class="form-group">
-            <label for="ex5">Materials $:</label>
+            <label for="ex5">Materials Cost:</label>
             <input ng-model="job.materials_cost" class="form-control" id="ex5" type="number" ng-change="jc.updateTaskTotal(job)">
           </div>
         </div>
