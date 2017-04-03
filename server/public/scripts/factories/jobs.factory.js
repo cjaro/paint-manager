@@ -54,6 +54,7 @@ app.factory('JobsFactory', ['$http', '$routeParams', function($http, $routeParam
     });
   }
 
+//identify the jobs of clients
   function getJobsForClient(clientId){
     $http({
       method: 'GET',
@@ -64,10 +65,16 @@ app.factory('JobsFactory', ['$http', '$routeParams', function($http, $routeParam
     });
   }
 
-
-
-
-
+//email job details to client
+  function emailJobstoClient(jobId){
+    $http({
+      method: 'GET',
+      url: '/jobs/email/' + jobId
+    }).then(function(response){
+      swal("Email Sent!");
+      console.log(response);
+    });
+  }
 
 
   return {
@@ -78,7 +85,7 @@ app.factory('JobsFactory', ['$http', '$routeParams', function($http, $routeParam
     getJobs: getJobs,
     getJobsForClient: getJobsForClient,
     clientJobs: clientJobs,
-
+    emailJobstoClient: emailJobstoClient
   }
 
 }]);

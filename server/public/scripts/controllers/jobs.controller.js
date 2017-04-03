@@ -10,6 +10,7 @@ app.controller('JobsController', ['JobsFactory', 'ClientsFactory', '$routeParams
   self.clients = ClientsFactory.clients;
   self.oneAtATime = true;
   self.expandJob = $routeParams.expandJobId;
+  self.emailJobstoClient = JobsFactory.emailJobstoClient;
 
   JobsFactory.getJobs();
 

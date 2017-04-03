@@ -1,6 +1,37 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('../config/database-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+var emailUtil = require('../utils/email.util.js');
+
+
+// email jobs to client
+router.get('/email/:id', function (req, res) {
+  pool.connect()
+    .then(function (client){
+      client.query('SELECT jobs.*, clients.email FROM jobs RIGHT OUTER JOIN clients ON clients.id=jobs.client_id WHERE jobs.id = $1',
+      [req.params.id])
+        .then(function (result) {
+          client.release();
+          emailUtil.sendEmail(result.rows,
+          function(error, response){
+            if(error){
+              console.log('Failed in sending mail');
+              res.sendStatus(500);
+            }else{
+              console.log('Successful in sending email');
+              res.sendStatus(200);
+            }
+          });
+        })
+        .catch(function (err) {
+          console.log('error on SELECT', err);
+          res.sendStatus(500);
+        });
+      }).catch(function(err) {
+        console.log('error connecting to database:', err);
+    });
+});
+
 
 // return all jobs
 router.get('/', function (req, res) {

@@ -73,6 +73,16 @@ button {
   background: transparent;
 }
 
+.btn-default:hover{
+  color: #2D4671;
+  border: 1.5px solid #2D4671;
+  background: transparent;
+}
+
+.btn-default #email {
+  margin-bottom:2px;
+}
+
 .navbar-bright {
  background-color:#111155;
  color:#fff;

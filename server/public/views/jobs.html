@@ -127,7 +127,10 @@
           </div>
         </div>
 
+
+
         <div class="btn-group" role="group" aria-label="Basic example">
+          <button id="email" class="btn btn-default glyphicon glyphicon-envelope" type="button" ng-click="jc.emailJobstoClient(job.id)"></button>
           <button class="btn btn-danger" type="button" ng-click="jc.deleteJob(job.id)">Delete</button>
           <button class="btn btn-primary" type="button" ng-click="jc.saveJob(job)">Save</button>
         </div>
