@@ -5,7 +5,6 @@ Paint Manager is a Full Stack content management application for contract painte
 
 
 > **Technologies Used:**
-
 > - Javascript
 > - AngularJs
 > - Bootstrap 
